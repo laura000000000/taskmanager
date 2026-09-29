@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div>
+                <h1>My Tasks</h1>
+                <p>Organize your tasks</p>
+            </div>
+
+            <div class="new-task-container">
+
+                <button
+                    id="new-task-button"
+                    type="button"
+                >
+                    + New task
+                </button>
+
+                <!-- New task form -->
+                <div id="task-modal" class="task-modal hidden">
+
+                    <div class="modal-header">
+
+                        <h2>New task</h2>
+
+                        <button
+                            id="close-modal-button"
+                            type="button"
+                            aria-label="Close"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                    <form id="task-form">
+
+                        <div class="form-group">
+                            <label for="task-title">
+                                Title
+                            </label>
+                            <input
+                                type="text"
+                                id="task-title"
+                                name="title"
+                                placeholder="Add a task title..."
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-description">
+                                Description
+                            </label>
+                            <textarea
+                                id="task-description"
+                                name="description"
+                                placeholder="Add some details..."
+                                rows="4"
+                            ></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-due-date">
+                                Due date
+                            </label>
+                            <input
+                                type="date"
+                                id="task-due-date"
+                                name="dueDate"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-priority">
+                                Priority
+                            </label>
+                            <select
+                                id="task-priority"
+                                name="priority"
+                            >
+                                <option value="Low" selected>
+                                    Low
+                                </option>
+                                <option value="Medium">
+                                    Medium
+                                </option>
+                                <option value="High">
+                                    High
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button
+                                id="cancel-button"
+                                type="button"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                            >
+                                Add task
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Search -->
+        <section class="search-section">
+            <input
+                type="search"
+                id="search-input"
+                placeholder="Search tasks..."
+            >
+        </section>
+
+        <!-- Filters -->
+        <nav
+            class="filters"
+            aria-label="Filter tasks"
+        >
+            <button
+                type="button"
+                class="filter-button active"
+                data-filter="all"
+            >
+                All
+            </button>
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="todo"
+            >
+                To do
+            </button>
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="completed"
+            >
+                Completed
+            </button>
+        </nav>
+
+        <!-- Task list -->
+        <section>
+            <ul id="task-list">
+                <!-- Tasks will be inserted here by JavaScript -->
+            </ul>
+            <p id="empty-state" class="empty-state hidden">
+                No tasks found.
+            </p>
+        </section>
+
+        <!-- Task counter -->
+        <p id="task-counter">
+            0 tasks
+        </p>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
